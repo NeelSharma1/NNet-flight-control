@@ -1,0 +1,16 @@
+ - Fix the EOMs so that they work properly according to the original model with your accuracy adjustments
+ - Make the neural network trainable by the EOMs, not just the linearized solver
+ - Set up neural network testing architecture
+    - Test on a regular sequential before creating a loop to try different types of layers
+ - Add the ability to have multiple throttles in different places
+
+
+v1.0
+
+What needs to happen is that essentially the NNet is created, and for every iteration, the NNet is used to generate a control vector output.
+This output then is used to propagate the model forward until a discrete timeframe is reached. When this timeframe is reached,
+the error for each output value will be calculated either by the difference between the final state and the target, or the averaged performance of the net over time.
+The latter is better because it prevents flukes from occurring, especially in target optimization,
+where the NNet outputs happen to land near the final output despite never or barely following the target path.
+For a trim controller, the plan is to use a shorter timeframe to ensure the oscillation of the different outputs is maximized relative to the other runs,
+and to ensure that the values are high enough to allow the error to affect the weights and biases to achieve the necessary precision.

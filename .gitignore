@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDEs
+.vs/
+.vscode/
+.idea/
+
+# Compiled C++ Extensions
+*.ipch
+
+# Data Files
+*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+.vs
+.vscode
+.idea
